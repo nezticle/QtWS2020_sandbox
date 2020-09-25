@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>monte_scherbelino_2k.hdr</file>
+    </qresource>
+</RCC>
