@@ -1,4 +1,5 @@
-import QtQuick
+import QtQuick 6
+import QtQuick3D 6
 
 Item {
     id: sandbox
@@ -17,4 +18,29 @@ Item {
     property string sessionText: "Qt Quick 3D: The Basics"
     property string debugText: ""
 
+    View3D {
+        anchors.fill: parent
+
+        PerspectiveCamera {
+            z: 300
+        }
+
+        Node {
+            x: 50
+
+            DirectionalLight {
+
+            }
+
+            Model {
+                source: "#Sphere"
+                eulerRotation.y: 30
+                materials: PrincipledMaterial {
+                    baseColor: "red"
+                    metalness: value1
+                    roughness: value2
+                }
+            }
+        }
+    }
 }
