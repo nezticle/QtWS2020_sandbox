@@ -36,7 +36,7 @@ Window {
         Rectangle {
             id: controlsContainer
             color: "#875087"
-            implicitWidth: 250
+            implicitWidth: 0
 
             ColumnLayout {
                 width: parent.width
