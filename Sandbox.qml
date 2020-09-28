@@ -3,6 +3,7 @@ import QtQuick3D 6
 import QtQuick3D.Helpers
 
 import "LightBox"
+import "SoulEV"
 
 Item {
     id: sandbox
@@ -40,68 +41,16 @@ Item {
                 castsShadow: true
             }
 
-
-            Model {
-                Node {
-                    y: 100
-                    Rectangle {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: 100
-                        height: 25
-                        color: "white"
-                        Text {
-                            anchors.centerIn: parent
-                            text: "Hello World"
-                        }
-                    }
-                }
-
-                source: "#Sphere"
-                eulerRotation.y: 30
-                materials: PrincipledMaterial {
-                    baseColor: "red"
-                    metalness: value1
-                    roughness: value2
-                }
-            }
-
-            Model {
-                source: "#Cube"
-                x: -100
-                materials: PrincipledMaterial {
-                    baseColorMap: Texture {
-                        sourceItem: Rectangle {
-                            width: 256
-                            height: 256
-                            color: "blue"
-                            Text {
-                                anchors.centerIn: parent
-                                text: qsTr("Via A Texture")
-                                color: "white"
-                                PropertyAnimation on rotation {
-                                    from: 0
-                                    to: 360
-                                    duration: 5000
-                                    running: true
-                                    loops: Animation.Infinite
-                                }
-                            }
-
-                        }
-                    }
-                    metalness: 0.0
-                    roughness: 0.0
-                }
+            Soul_ev_2019 {
+                y: -175
+                scale: Qt.vector3d(100, 100, 100)
             }
         }
     }
 
 
     View3D {
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: parent.width * 0.5
+        anchors.fill: parent
         environment: SceneEnvironment {
             lightProbe: Texture {
                 source: "monte_scherbelino_2k.hdr"
@@ -109,14 +58,6 @@ Item {
             backgroundMode: SceneEnvironment.SkyBox
         }
         importScene: sceneRoot
-    }
-
-    View3D {
-        importScene: sceneRoot
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        width: parent.width * 0.5
     }
 
     WasdController {

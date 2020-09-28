@@ -5,5 +5,13 @@
         <file>LightBox/maps/1.png</file>
         <file>LightBox/meshes/floor.mesh</file>
         <file>LightBox/meshes/walls.mesh</file>
+        <file>SoulEV/Soul_ev_2019.qml</file>
+        <file>SoulEV/meshes/body_high.mesh</file>
+        <file>SoulEV/meshes/glass_high.mesh</file>
+        <file>SoulEV/meshes/interior_high.mesh</file>
+        <file>SoulEV/meshes/wheel_back_left_high.mesh</file>
+        <file>SoulEV/meshes/wheel_back_right_high.mesh</file>
+        <file>SoulEV/meshes/wheel_front_left_high.mesh</file>
+        <file>SoulEV/meshes/wheel_front_right_high.mesh</file>
     </qresource>
 </RCC>
