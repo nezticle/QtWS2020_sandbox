@@ -1,5 +1,6 @@
 import QtQuick 6
 import QtQuick3D 6
+import QtQuick3D.Helpers
 
 import "LightBox"
 
@@ -17,18 +18,13 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: Scene Concepts"
+    property string sessionText: "Qt Quick 3D: 2D in 3D"
     property string debugText: ""
 
-    View3D {
-        anchors.fill: parent
-        environment: SceneEnvironment {
-            lightProbe: Texture {
-                source: "monte_scherbelino_2k.hdr"
-            }
-        }
-
+    Node {
+        id: sceneRoot
         PerspectiveCamera {
+            id: mainCamera
             z: 300
         }
 
@@ -39,11 +35,11 @@ Item {
 
         Node {
 
-//            DirectionalLight {
+            DirectionalLight {
 //                visible: isEnabled1
-//                eulerRotation.x: -30
-//                castsShadow: true
-//            }
+                eulerRotation.x: -30
+                castsShadow: true
+            }
 
 //            PointLight {
 //                visible: isEnabled2
@@ -67,5 +63,32 @@ Item {
                 }
             }
         }
+    }
+
+
+    View3D {
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        width: parent.width * 0.5
+        environment: SceneEnvironment {
+            lightProbe: Texture {
+                source: "monte_scherbelino_2k.hdr"
+            }
+            backgroundMode: SceneEnvironment.SkyBox
+        }
+        importScene: sceneRoot
+    }
+
+    View3D {
+        importScene: sceneRoot
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        width: parent.width * 0.5
+    }
+
+    WasdController {
+        controlledObject: mainCamera
     }
 }
