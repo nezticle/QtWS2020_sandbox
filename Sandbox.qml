@@ -18,7 +18,7 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: 2D in 3D"
+    property string sessionText: "Qt Quick 3D: Imported Content"
     property string debugText: ""
 
     Node {
@@ -36,30 +36,61 @@ Item {
         Node {
 
             DirectionalLight {
-//                visible: isEnabled1
                 eulerRotation.x: -30
                 castsShadow: true
             }
 
-//            PointLight {
-//                visible: isEnabled2
-//                position: Qt.vector3d(0, 100, 100)
-//                castsShadow: true
-//                shadowFactor: 50
-//            }
-
-//            SpotLight {
-//                visible: isEnabled3
-//                z: 300
-//            }
 
             Model {
+                Node {
+                    y: 100
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: 100
+                        height: 25
+                        color: "white"
+                        Text {
+                            anchors.centerIn: parent
+                            text: "Hello World"
+                        }
+                    }
+                }
+
                 source: "#Sphere"
                 eulerRotation.y: 30
                 materials: PrincipledMaterial {
                     baseColor: "red"
                     metalness: value1
                     roughness: value2
+                }
+            }
+
+            Model {
+                source: "#Cube"
+                x: -100
+                materials: PrincipledMaterial {
+                    baseColorMap: Texture {
+                        sourceItem: Rectangle {
+                            width: 256
+                            height: 256
+                            color: "blue"
+                            Text {
+                                anchors.centerIn: parent
+                                text: qsTr("Via A Texture")
+                                color: "white"
+                                PropertyAnimation on rotation {
+                                    from: 0
+                                    to: 360
+                                    duration: 5000
+                                    running: true
+                                    loops: Animation.Infinite
+                                }
+                            }
+
+                        }
+                    }
+                    metalness: 0.0
+                    roughness: 0.0
                 }
             }
         }
