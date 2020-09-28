@@ -19,7 +19,7 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: Imported Content"
+    property string sessionText: "Qt Quick 3D: Post Processing"
     property string debugText: ""
 
     Node {
@@ -50,7 +50,24 @@ Item {
 
 
     View3D {
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        width: parent.width * 0.5
+        environment: SceneEnvironment {
+            lightProbe: Texture {
+                source: "monte_scherbelino_2k.hdr"
+            }
+            backgroundMode: SceneEnvironment.SkyBox
+        }
+        importScene: sceneRoot
+    }
+
+    View3D {
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        width: parent.width * 0.5
         environment: SceneEnvironment {
             lightProbe: Texture {
                 source: "monte_scherbelino_2k.hdr"
