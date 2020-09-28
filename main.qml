@@ -54,6 +54,7 @@ Window {
                         from: 0
                         to: 1
                         stepSize: 0.01
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: slider1.value.toFixed(2)
@@ -68,6 +69,7 @@ Window {
                         from: 0
                         to: 1
                         stepSize: 0.01
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: slider2.value.toFixed(2)
@@ -82,6 +84,7 @@ Window {
                         from: 0
                         to: 1
                         stepSize: 0.01
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: slider3.value.toFixed(2)
@@ -110,6 +113,7 @@ Window {
                         from: 0
                         to: 1
                         stepSize: 0.01
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: slider5.value.toFixed(2)
@@ -124,6 +128,7 @@ Window {
                         from: 0
                         to: 1
                         stepSize: 0.01
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: slider6.value.toFixed(2)
@@ -135,6 +140,7 @@ Window {
                     CheckBox {
                         id: checkbox1
                         checked: false
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: "isEnabled1"
@@ -146,6 +152,7 @@ Window {
                     CheckBox {
                         id: checkbox2
                         checked: false
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: "isEnabled2"
@@ -157,6 +164,7 @@ Window {
                     CheckBox {
                         id: checkbox3
                         checked: false
+                        focusPolicy: Qt.NoFocus
                     }
                     Label {
                         text: "isEnabled3"

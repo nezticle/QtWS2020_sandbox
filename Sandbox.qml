@@ -15,7 +15,7 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: The Basics"
+    property string sessionText: "Qt Quick 3D: Lighting"
     property string debugText: ""
 
     View3D {
