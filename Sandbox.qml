@@ -3,7 +3,6 @@ import QtQuick3D 6
 import QtQuick3D.Helpers
 
 import "LightBox"
-import "SoulEV"
 
 Item {
     id: sandbox
@@ -19,62 +18,53 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: Post Processing"
+    property string sessionText: "Qt Quick 3D: Custom Materials"
     property string debugText: ""
 
-    Node {
-        id: sceneRoot
-        PerspectiveCamera {
-            id: mainCamera
-            z: 300
-        }
 
-        LightBox {
-            y: -200
-            eulerRotation.y: 45
+    View3D {
+        anchors.fill: parent
+        environment: SceneEnvironment {
+            lightProbe: Texture {
+                source: "monte_scherbelino_2k.hdr"
+            }
+            backgroundMode: SceneEnvironment.SkyBox
         }
+        importScene: sceneRoot
 
         Node {
+            id: sceneRoot
+            PerspectiveCamera {
+                id: mainCamera
+                z: 300
+            }
+
+            LightBox {
+                y: -200
+                eulerRotation.y: 45
+            }
+
+            Model {
+                source: "#Cylinder"
+                materials: SimpleMaterial {
+
+                }
+            }
+
+            Model {
+                x: -100
+                y: -50
+                source: "#Cone"
+                materials: UnshadedMaterial {
+
+                }
+            }
 
             DirectionalLight {
                 eulerRotation.x: -30
                 castsShadow: true
             }
-
-            Soul_ev_2019 {
-                y: -175
-                scale: Qt.vector3d(100, 100, 100)
-            }
         }
-    }
-
-
-    View3D {
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: parent.width * 0.5
-        environment: SceneEnvironment {
-            lightProbe: Texture {
-                source: "monte_scherbelino_2k.hdr"
-            }
-            backgroundMode: SceneEnvironment.SkyBox
-        }
-        importScene: sceneRoot
-    }
-
-    View3D {
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        width: parent.width * 0.5
-        environment: SceneEnvironment {
-            lightProbe: Texture {
-                source: "monte_scherbelino_2k.hdr"
-            }
-            backgroundMode: SceneEnvironment.SkyBox
-        }
-        importScene: sceneRoot
     }
 
     WasdController {

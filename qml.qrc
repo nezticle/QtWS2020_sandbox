@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Sandbox.qml</file>
+        <file>UnshadedMaterial.qml</file>
+        <file>unshadedmaterial.vert</file>
+        <file>unshadedmaterial.frag</file>
+        <file>SimpleMaterial.qml</file>
+        <file>simplematerial.frag</file>
     </qresource>
 </RCC>
