@@ -1,5 +1,6 @@
 void MAIN()
 {
-    METALNESS = 1.0;
+    METALNESS = 0.0;
     ROUGHNESS = 0.0;
+    BASE_COLOR = diffuseColor;
 }

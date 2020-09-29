@@ -18,7 +18,7 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: Custom Materials"
+    property string sessionText: "Qt Quick 3D: Custom Effects"
     property string debugText: ""
 
 
@@ -44,18 +44,18 @@ Item {
                 eulerRotation.y: 45
             }
 
-            Model {
-                source: "#Cylinder"
-                materials: SimpleMaterial {
-
-                }
-            }
 
             Model {
                 x: -100
                 y: -50
                 source: "#Cone"
                 materials: UnshadedMaterial {
+
+                }
+            }
+            Model {
+                source: "#Cylinder"
+                materials: SimpleMaterial {
 
                 }
             }
