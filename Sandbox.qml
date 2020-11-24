@@ -1,6 +1,7 @@
 import QtQuick 6
 import QtQuick3D 6
 import QtQuick3D.Helpers
+import Sandbox3D 1
 
 import "LightBox"
 
@@ -18,7 +19,7 @@ Item {
     required property bool isEnabled2
     required property bool isEnabled3
     // Outputs
-    property string sessionText: "Qt Quick 3D: Custom Effects"
+    property string sessionText: "Qt Quick 3D: Custom Geometry"
     property string debugText: ""
 
 
@@ -32,6 +33,7 @@ Item {
         }
         importScene: sceneRoot
 
+
         Node {
             id: sceneRoot
             PerspectiveCamera {
@@ -44,26 +46,19 @@ Item {
                 eulerRotation.y: 45
             }
 
-
-            Model {
-                x: -100
-                y: -50
-                source: "#Cone"
-                materials: UnshadedMaterial {
-
-                }
-            }
-            Model {
-                source: "#Cylinder"
-                materials: SimpleMaterial {
-
-                }
-            }
-
             DirectionalLight {
                 eulerRotation.x: -30
-                castsShadow: true
             }
+
+            Model {
+                geometry: RandomPointCloud {
+                    count: 300000
+                }
+                materials: PrincipledMaterial {
+                }
+            }
+
+
         }
     }
 

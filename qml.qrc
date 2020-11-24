@@ -7,5 +7,7 @@
         <file>unshadedmaterial.frag</file>
         <file>SimpleMaterial.qml</file>
         <file>simplematerial.frag</file>
+        <file>SimpleTonemapEffect.qml</file>
+        <file>simpleTonemapper.frag</file>
     </qresource>
 </RCC>
